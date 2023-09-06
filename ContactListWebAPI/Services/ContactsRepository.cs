@@ -49,7 +49,7 @@ namespace ContactListWebAPI.Services
 
         public async Task<Person> AddPersonAsync(Person person)
         {
-            if (string.IsNullOrWhiteSpace(person.Email) || person.Id <= 0)
+            if (string.IsNullOrWhiteSpace(person.Email))
             {
                 throw new ArgumentNullException("Incorrect person data", nameof(person));
             }
