@@ -1,10 +1,11 @@
 ﻿using ContactListWebAPI.DataAccess;
+using ContactListWebAPI.Interfaces;
 using ContactListWebAPI.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace ContactListWebAPI.Services
 {
-    public class ContactsRepository
+    public class ContactsRepository : IContactsRepository
     {
         private readonly ContactDataContext _context;
 
