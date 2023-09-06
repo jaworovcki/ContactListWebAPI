@@ -4,7 +4,7 @@ namespace ContactListWebAPI.Interfaces
 {
     public interface IContactsRepository
     {
-        Task<List<Person>> GetPeopleAsync();
+        Task<IEnumerable<Person>> GetPeopleAsync();
 
         Task<Person?> GetPersonByIdAsync(int id);
 

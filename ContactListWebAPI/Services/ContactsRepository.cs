@@ -14,7 +14,7 @@ namespace ContactListWebAPI.Services
             _context = context;
         }
 
-        public async Task<List<Person>> GetPeopleAsync() 
+        public async Task<IEnumerable<Person>> GetPeopleAsync() 
             => await _context.People
             .AsNoTracking()
             .ToListAsync();
@@ -49,9 +49,9 @@ namespace ContactListWebAPI.Services
 
         public async Task<Person> AddPersonAsync(Person person)
         {
-            if (person is null)
+            if (string.IsNullOrWhiteSpace(person.Email) || person.Id <= 0)
             {
-                throw new ArgumentNullException(nameof(person));
+                throw new ArgumentNullException("Incorrect person data", nameof(person));
             }
             else
             {
